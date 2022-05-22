@@ -1,0 +1,113 @@
+<script type="ts">
+  import Ingredient from "../components/Ingredient.svelte";
+  export let query: string;
+  import { recipies } from "../recipes";
+  const quantityPerServing = (
+    quantity: number,
+    newServing: number,
+    startServing: number
+  ) => {
+    return (quantity * newServing) / startServing;
+  };
+  const foundRecipie = recipies.find(
+    ({ name }) => name.toLocaleLowerCase() === query.toLocaleLowerCase()
+  );
+  $: recipie = foundRecipie;
+  $: ingredients = foundRecipie.ingredients;
+  $: servings = foundRecipie.servings;
+  const ingredientsForQuantity = () => {
+    ingredients = [...ingredients].map((i, index) => {
+      const currentQuantity = foundRecipie.ingredients[index].quantity;
+      return typeof i.quantity === "string"
+        ? i
+        : {
+            ...i,
+            quantity: quantityPerServing(
+              currentQuantity as number,
+              servings,
+              foundRecipie.servings
+            ),
+          };
+    });
+  };
+  const makePadding = (num: number): string =>
+    num < 10 ? "0" + String(num) : String(num);
+</script>
+
+<div class="dishinfo">
+  <h1>{recipie.name}</h1>
+  <h4>di {recipie.author}</h4>
+  <div class="justify-margin">
+    <h3 class="section-name">
+      Ingredienti per <input
+        label={"number of srevings"}
+        type="number"
+        min="1"
+        bind:value={servings}
+        on:change={ingredientsForQuantity}
+      /> persone
+    </h3>
+    <ul class="ingredient-list">
+      {#each ingredients as ingredient}
+        <Ingredient {ingredient} style="width: 33%" />
+      {/each}
+    </ul>
+    <div class="justify-margin">
+      <h3 class="section-name">Descrizione</h3>
+      <p>{recipie.description}</p>
+    </div>
+  </div>
+  <div class="justify-margin">
+    <h3 class="section-name">Preparazione</h3>
+    {#each recipie.steps as { description }, i}
+      <ul class="steplits">
+        <li class="step">
+          <p class="headNumber">.{makePadding(i + 1)}</p>
+          <p>{description}</p>
+        </li>
+      </ul>
+    {/each}
+  </div>
+</div>
+
+<style>
+  .dishinfo {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+    width: 100%;
+  }
+  h1 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 4em;
+    font-weight: 100;
+  }
+  .ingredient-list {
+    max-width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .section-name {
+    color: #ff3e00;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+  }
+  .justify-margin {
+    text-align: justify;
+    margin: 1rem 0;
+  }
+  .steplits {
+    list-style-type: none;
+  }
+  .step {
+    margin-bottom: 1.5rem;
+  }
+  .step:not(:first-child) {
+    margin: 1.5rem 0;
+  }
+  .headNumber {
+    margin-bottom: 0.2rem;
+    font-style: italic;
+  }
+</style>
