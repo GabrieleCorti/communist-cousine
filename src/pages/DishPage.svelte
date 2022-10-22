@@ -51,7 +51,7 @@
     </h3>
     <ul class="ingredient-list">
       {#each ingredients as ingredient}
-        <Ingredient {ingredient} style="width: 33%" />
+        <li><Ingredient {ingredient} /></li>
       {/each}
     </ul>
     <div class="justify-margin">
@@ -99,18 +99,19 @@
     font-weight: 100;
   }
   .ingredient-list {
-    max-width: 30%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    gap: 1rem;
   }
   .section-name {
     color: #ff3e00;
     font-weight: lighter;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
   .justify-margin {
     text-align: justify;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
   .steplits {
     list-style-type: none;
@@ -124,5 +125,11 @@
   .headNumber {
     margin-bottom: 0.2rem;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .dishinfo {
+      padding: 2rem;
+    }
   }
 </style>

@@ -15,7 +15,7 @@
     }
     return -1;
   };
-  
+
   const getAlphabeticListOrder = (list: AlphabeticList[]) => {
     return list
       .map((r) => ({
@@ -44,22 +44,14 @@
 
 <div>
   <MainHeader />
-  <p>
-    Ieri ho cercato una ricetta su un rinomato sito di cucina, il sito c'ha
-    messo un minuto buono a caricarsi, la pubblicità era infinita, le dosi erano
-    tutte sballate, ma soprattuto non era la ricetta che volevo. Ho creato
-    questo sito così che chiunque volgia possa aggiungere le sue ricette e
-    chiunque lo visiti possa leggere... ah naturalmente senza pubblicità di
-    Google! Sarà una sorta di wiki semplice da consultare ma soprattuto così
-    responsive che la potrete visitare sul vostro cazzo di smart watch
-  </p>
+  <p>Senza publicità e traccimanti, per sempre.</p>
   <RecipiesList {recipieNamesAndHeader} />
 </div>
 
 <style>
   p {
     max-width: 50%;
-    margin: 1rem auto;
+    margin: 0.5rem auto 1.5rem;
     text-align: center;
   }
 </style>

@@ -10,7 +10,7 @@
   {#each recipieNamesAndHeader as { group, items }}
     <div class="indexVoice">
       <h3>{group}</h3>
-      <ul>
+      <ul class="recipi-list">
         {#each items as { name }}
           <li class="indexVoice_voice">
             <a href={`/dish/${name}`} use:link>{name}</a>
@@ -36,5 +36,28 @@
   .indexVoice_voice {
     text-transform: capitalize;
     margin-bottom: 0.8rem;
+  }
+  .recipi-list {
+    list-style: none;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .wrap {
+      padding: 2rem;
+    }
+  }
+  @media screen and (max-width: 760px) {
+    .indexVoice {
+      width: 33.3%;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .wrap {
+      flex-direction: column;
+    }
+    .indexVoice {
+      width: 50%;
+      margin: auto;
+    }
   }
 </style>
