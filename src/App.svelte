@@ -4,7 +4,7 @@
   import { Router, Route } from "svelte-navigator";
   /**
    * prop for stopping routes to auto manage the focus on reload
-  */
+   */
   const primary = false;
 </script>
 

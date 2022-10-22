@@ -1,12 +1,12 @@
 <script type="ts">
   import MainHeader from "../components/MainHeader.svelte";
   import RecipiesList from "../components/RecipiesList.svelte";
-  import { recipies } from "../recipes";
+  import { recipes } from "../recipes";
   interface AlphabeticList {
     group: string;
     items: { name: string }[];
   }
-  const recipieNames = recipies.map(({ name }) => ({ name: name }));
+  const recipieNames = recipes.map(({ name }) => ({ name: name }));
   const sortWord = (a: string, b: string) => {
     if (a > b) {
       return 1;

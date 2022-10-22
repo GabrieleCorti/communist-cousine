@@ -1,7 +1,7 @@
 <script type="ts">
   import Ingredient from "../components/Ingredient.svelte";
   export let query: string;
-  import { recipies } from "../recipes";
+  import { recipes } from "../recipes";
   const quantityPerServing = (
     quantity: number,
     newServing: number,
@@ -9,7 +9,7 @@
   ) => {
     return (quantity * newServing) / startServing;
   };
-  const foundRecipie = recipies.find(
+  const foundRecipie = recipes.find(
     ({ name }) => name.toLocaleLowerCase() === query.toLocaleLowerCase()
   );
   $: recipie = foundRecipie;
@@ -39,13 +39,15 @@
   <h4>di {recipie.author}</h4>
   <div class="justify-margin">
     <h3 class="section-name">
-      Ingredienti per <input
-        label={"number of srevings"}
-        type="number"
-        min="1"
-        bind:value={servings}
-        on:change={ingredientsForQuantity}
-      /> persone
+      Ingredienti per {#if recipie.disableServingsCount ?? true}<input
+          label={"number of srevings"}
+          type="number"
+          min="1"
+          bind:value={servings}
+          on:change={ingredientsForQuantity}
+        />
+      {:else}{servings}
+      {/if} persone
     </h3>
     <ul class="ingredient-list">
       {#each ingredients as ingredient}
@@ -59,7 +61,7 @@
   </div>
   <div class="justify-margin">
     <h3 class="section-name">Preparazione</h3>
-    {#each recipie.steps as { description }, i}
+    {#each recipie.steps as description, i}
       <ul class="steplits">
         <li class="step">
           <p class="headNumber">.{makePadding(i + 1)}</p>
@@ -68,14 +70,27 @@
       </ul>
     {/each}
   </div>
+  {#if recipie.note}
+    <div class="justify-margin">
+      <h3 class="section-name">Note</h3>
+      {#each recipie.note as description, i}
+        <ul class="steplits">
+          <li class="step">
+            <p class="headNumber">.{makePadding(i + 1)}</p>
+            <p>{description}</p>
+          </li>
+        </ul>
+      {/each}
+    </div>
+  {/if}
 </div>
 
 <style>
   .dishinfo {
     text-align: center;
-    padding: 1em;
-    margin: 0 auto;
+    max-width: 1200px;
     width: 100%;
+    margin: auto;
   }
   h1 {
     color: #ff3e00;

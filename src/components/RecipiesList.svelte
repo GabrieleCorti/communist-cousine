@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 70%;
+    max-width: 1200px;
     margin: auto;
   }
   .indexVoice {
