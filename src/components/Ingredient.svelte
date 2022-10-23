@@ -8,5 +8,5 @@
   {ingredient.name} <span>{ingredient.quantity}</span>
   {#if ingredient.unit}
     <span>{ingredient.unit}</span>
-  {/if}
+  {/if};
 </p>

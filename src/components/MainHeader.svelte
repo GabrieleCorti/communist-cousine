@@ -17,7 +17,7 @@
   h1 {
     color: #ff3e00;
     text-transform: uppercase;
-    font-size: 4em;
+    font-size: clamp(2.5rem, 7vw, 4rem);
     font-weight: 100;
   }
 </style>
