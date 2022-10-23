@@ -39,7 +39,7 @@ export const recipes: Dish[] = [
       "Lasciare a mollo le lenticchie per 12h in acque tiepida salata",
       "Scaldare il brodo",
       "Scolare e sciacquare le lenticchie",
-      "stufare le cipolla con burro e olio",
+      "Stufare le cipolla con burro e olio",
       "Aggiungere le patate a pezzi e il vino con sciolto all'interno il concentrato di pomodoro",
       "Cuocere tutto fuoco alto per 5 minuti",
       "Aggiungere il brodo che non deve bollire",
