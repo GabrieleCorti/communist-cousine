@@ -44,7 +44,7 @@ export const recipes: Dish[] = [
       "Cuocere tutto fuoco alto per 5 minuti",
       "Aggiungere il brodo che non deve bollire",
       "Aggiungere le lenticchie",
-      "Sbollire il tutto per circa un'ora e mezza con coperchio, salare a metà cottura",
+      "Sobbollire il tutto per circa un'ora e mezza con coperchio, salare a metà cottura",
       "Per quanto riguarda il cotechino, seguire le indicazioni di cottura",
       "Aggiungere il cotechino alle lenticchie poco prima di servire il piatto",
     ],
@@ -123,6 +123,33 @@ export const recipes: Dish[] = [
     ],
     note: [
       "Queste quantità sono per una teglia da 12, perciò non seguire il calcolo a persona ma calcolare i multipli di teglia",
+    ],
+  },
+  {
+    name: "Pere al vino rosso",
+    author: "Gabriele Corti",
+    disableServingsCount: false,
+    description: "Pere cotte al vino rosso",
+    servings: 4,
+    ingredients: [
+      { name: "Pere", quantity: 4 },
+      { name: "Vino rosso", quantity: 350, unit: "ml" },
+      { name: "Anice stellato", quantity: "q.b." },
+      { name: "Chiodi di garofano", quantity: "q.b." },
+      { name: "Stecca di canella", quantity: "q.b." },
+      { name: "Miele", quantity: 2, unit: "cucchiai" },
+      { name: "Zucchero di canna", quantity: 60, unit: "g" },
+    ],
+    steps: [
+      "Sbucciare le pere",
+      "A fuoco alto aggiungere il vino il miele e lo zucchero di canna mischiare e fare sobbollire",
+      "Dopo qualche minuto aggiungere l'anice stellato, i chiodi di garofano, la stecca di canella e le pere",
+      "Abbassare il fuco e cuocere per circa 25 minuti e ogni 5 minuti girare le pere",
+      "Togliere le pere dalla dalla padella quando avranno raggiunto la consistenza preferita",
+      "Togliere le droghe dal liquido rimanente e a fiamma alta ridurre il vino fino ad ottenere una glassa dal colore rosso brillante e unirla con le pere",
+    ],
+    note: [
+      "I migliori vini rossi da utilizzare per questo dessert sono un vino dolce (come il Brachetto), un Barbera, oppure un rosso di Borgogna",
     ],
   },
 ];
