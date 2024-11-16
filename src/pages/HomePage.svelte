@@ -44,7 +44,7 @@
 
 <div>
   <MainHeader />
-  <p>Senza publicità e traccimanti, per sempre.</p>
+  <p>Senza pubblicità e tracciamenti, per sempre.</p>
   <RecipiesList {recipieNamesAndHeader} />
 </div>
 
